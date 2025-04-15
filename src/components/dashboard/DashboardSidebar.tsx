@@ -145,7 +145,7 @@ const DashboardSidebar: React.FC = () => {
               active={isActive("/schedule-jobs")}
             />
             <SidebarLink
-              to="#"
+              to="/jobs"
               icon={<ClipboardList className="h-5 w-5" />}
               label="Jobs"
               active={isActive("/jobs")}
@@ -157,7 +157,7 @@ const DashboardSidebar: React.FC = () => {
               active={isActive("/client-settings")}
             />
             <SidebarLink
-              to="#"
+              to="/settings"
               icon={<Settings className="h-5 w-5" />}
               label="Settings"
               active={isActive("/settings")}

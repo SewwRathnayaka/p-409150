@@ -9,6 +9,8 @@ import NotFound from "./pages/NotFound";
 import HandymanDashboard from "./pages/HandymanDashboard";
 import ScheduleJobs from "./pages/ScheduleJobs";
 import ClientSettings from "./pages/ClientSettings";
+import Jobs from "./pages/Jobs";
+import Settings from "./pages/Settings";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +25,8 @@ const App = () => (
           <Route path="/handyman-dashboard" element={<HandymanDashboard />} />
           <Route path="/schedule-jobs" element={<ScheduleJobs />} />
           <Route path="/client-settings" element={<ClientSettings />} />
+          <Route path="/jobs" element={<Jobs />} />
+          <Route path="/settings" element={<Settings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
