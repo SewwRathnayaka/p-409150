@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   LayoutDashboard,
   Calendar,
@@ -44,6 +44,11 @@ const SidebarLink: React.FC<SidebarLinkProps> = ({
 
 const DashboardSidebar: React.FC = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const location = useLocation();
+
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
 
   return (
     <>
@@ -131,27 +136,31 @@ const DashboardSidebar: React.FC = () => {
               to="/handyman-dashboard"
               icon={<LayoutDashboard className="h-5 w-5" />}
               label="Dashboard"
-              active={true}
+              active={isActive("/handyman-dashboard")}
             />
             <SidebarLink
-              to="#"
+              to="/schedule-jobs"
               icon={<Calendar className="h-5 w-5" />}
               label="Schedule"
+              active={isActive("/schedule-jobs")}
             />
             <SidebarLink
               to="#"
               icon={<ClipboardList className="h-5 w-5" />}
               label="Jobs"
+              active={isActive("/jobs")}
             />
             <SidebarLink
-              to="#"
+              to="/client-settings"
               icon={<Users className="h-5 w-5" />}
               label="Clients"
+              active={isActive("/client-settings")}
             />
             <SidebarLink
               to="#"
               icon={<Settings className="h-5 w-5" />}
               label="Settings"
+              active={isActive("/settings")}
             />
           </nav>
 
