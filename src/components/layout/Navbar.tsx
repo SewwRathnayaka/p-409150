@@ -1,4 +1,6 @@
+
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   return (
@@ -32,6 +34,9 @@ const Navbar: React.FC = () => {
         </a>
       </div>
       <div className="flex gap-2.5 max-md:hidden relative z-10">
+        <Link to="/handyman-dashboard" className="w-auto h-10 bg-yellow-600 text-white text-xl cursor-pointer flex items-center justify-center rounded px-4">
+          Dashboard
+        </Link>
         <button className="w-20 h-10 bg-yellow-600 text-white text-xl cursor-pointer flex items-center justify-center rounded">
           Sign up
         </button>
