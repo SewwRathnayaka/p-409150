@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import HandymanDashboard from "./pages/HandymanDashboard";
+import ScheduleJobs from "./pages/ScheduleJobs";
+import ClientSettings from "./pages/ClientSettings";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +21,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/handyman-dashboard" element={<HandymanDashboard />} />
+          <Route path="/schedule-jobs" element={<ScheduleJobs />} />
+          <Route path="/client-settings" element={<ClientSettings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
