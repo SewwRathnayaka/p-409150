@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -10,10 +11,10 @@ const Index: React.FC = () => {
   return (
     <>
       <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Myanmar+Khyay&family=Spline+Sans:wght@700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Montserrat:wght@500;600;700&display=swap"
         rel="stylesheet"
       />
-      <main className="min-h-screen flex flex-col">
+      <main className="min-h-screen flex flex-col font-sans">
         <Navbar />
         <HeroSection />
         <ServicesSection />
@@ -21,13 +22,13 @@ const Index: React.FC = () => {
 
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-12 text-[#14B22D]">
+            <h2 className="text-3xl font-heading font-bold text-center mb-12 text-[#14B22D]">
               Get In Touch
             </h2>
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="md:w-1/2">
-                <h3 className="text-2xl font-bold mb-4">Contact Information</h3>
-                <p className="mb-6">
+                <h3 className="text-xl font-heading font-bold mb-4">Contact Information</h3>
+                <p className="mb-6 text-gray-700 text-sm">
                   Have questions or need assistance? Our team is here to help
                   you with all your handyman service needs.
                 </p>
@@ -55,7 +56,7 @@ const Index: React.FC = () => {
                       </clipPath>
                     </defs>
                   </svg>
-                  <span className="text-gray-700">+94 123 456 789</span>
+                  <span className="text-gray-700 text-sm">+94 123 456 789</span>
                 </div>
                 <div className="flex items-center mb-4">
                   <svg
@@ -81,7 +82,7 @@ const Index: React.FC = () => {
                       strokeLinejoin="round"
                     ></path>
                   </svg>
-                  <span className="text-gray-700">info@xfinder.lk</span>
+                  <span className="text-gray-700 text-sm">info@xfinder.lk</span>
                 </div>
                 <div className="flex items-center">
                   <svg
@@ -107,7 +108,7 @@ const Index: React.FC = () => {
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <span className="text-gray-700">
+                  <span className="text-gray-700 text-sm">
                     123 Main Street, Colombo, Sri Lanka
                   </span>
                 </div>
