@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 import { Button } from "@/components/ui/button";
@@ -6,6 +5,15 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
+import { Badge } from "@/components/ui/badge";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import {
   Card,
   CardContent,
@@ -99,17 +107,17 @@ const Settings: React.FC = () => {
           </div>
           
           <Tabs defaultValue="profile" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-4 md:w-auto">
-              <TabsTrigger value="profile" className="flex gap-2 items-center">
+            <TabsList className="grid w-full grid-cols-4 md:w-auto bg-white shadow-sm">
+              <TabsTrigger value="profile" className="flex gap-2 items-center data-[state=active]:bg-primary/10 data-[state=active]:text-primary">
                 <User size={16} /> Profile
               </TabsTrigger>
-              <TabsTrigger value="notifications" className="flex gap-2 items-center">
+              <TabsTrigger value="notifications" className="flex gap-2 items-center data-[state=active]:bg-primary/10 data-[state=active]:text-primary">
                 <Bell size={16} /> Notifications
               </TabsTrigger>
-              <TabsTrigger value="account" className="flex gap-2 items-center">
+              <TabsTrigger value="account" className="flex gap-2 items-center data-[state=active]:bg-primary/10 data-[state=active]:text-primary">
                 <SettingsIcon size={16} /> Account
               </TabsTrigger>
-              <TabsTrigger value="billing" className="flex gap-2 items-center">
+              <TabsTrigger value="billing" className="flex gap-2 items-center data-[state=active]:bg-primary/10 data-[state=active]:text-primary">
                 <CreditCard size={16} /> Billing
               </TabsTrigger>
             </TabsList>
@@ -475,11 +483,11 @@ const Settings: React.FC = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      <Button className="bg-[#14B22D] hover:bg-green-700 w-full md:w-auto justify-start">
+                      <Button className="bg-[#14B22D] hover:bg-green-700 w-full md:w-auto">
                         <CreditCard className="mr-2 h-4 w-4" /> Add Payment Method
                       </Button>
                       
-                      <div className="rounded-md border p-4">
+                      <div className="rounded-md border p-4 bg-white">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                           <div className="flex items-center gap-3">
                             <CreditCard className="h-8 w-8 text-[#14B22D]" />
@@ -489,7 +497,7 @@ const Settings: React.FC = () => {
                             </div>
                           </div>
                           <div className="flex items-center gap-2">
-                            <Badge>Default</Badge>
+                            <Badge variant="secondary">Default</Badge>
                             <Button variant="outline" size="sm">Edit</Button>
                             <Button variant="outline" size="sm" className="text-red-500">Remove</Button>
                           </div>
@@ -588,7 +596,7 @@ const Settings: React.FC = () => {
                             <TableCell>Platform Service Fee</TableCell>
                             <TableCell className="text-red-500">-$25.00</TableCell>
                             <TableCell>
-                              <Badge variant="outline" className="bg-green-100 text-green-800 hover:bg-green-100">
+                              <Badge className="bg-green-100 text-green-800">
                                 Completed
                               </Badge>
                             </TableCell>
