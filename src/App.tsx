@@ -14,6 +14,10 @@ import Settings from "./pages/Settings";
 import AboutUs from "./pages/AboutUs";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import SignUpRole from "./pages/SignUpRole";
+import ClientSignUp from "./pages/ClientSignUp";
+import HandymanSignUp from "./pages/HandymanSignUp";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +37,10 @@ const App = () => (
           <Route path="/client-settings" element={<ClientSettings />} />
           <Route path="/jobs" element={<Jobs />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUpRole />} />
+          <Route path="/signup/client" element={<ClientSignUp />} />
+          <Route path="/signup/handyman" element={<HandymanSignUp />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
