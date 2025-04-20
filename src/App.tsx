@@ -18,6 +18,7 @@ import Login from "./pages/Login";
 import SignUpRole from "./pages/SignUpRole";
 import ClientSignUp from "./pages/ClientSignUp";
 import HandymanSignUp from "./pages/HandymanSignUp";
+import ClientDashboard from "./pages/ClientDashboard";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/handyman-dashboard" element={<HandymanDashboard />} />
+          <Route path="/client-dashboard" element={<ClientDashboard />} />
           <Route path="/schedule-jobs" element={<ScheduleJobs />} />
           <Route path="/client-settings" element={<ClientSettings />} />
           <Route path="/jobs" element={<Jobs />} />
