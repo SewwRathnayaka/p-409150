@@ -36,11 +36,11 @@ const Login = () => {
   const onSubmit = (data: any) => {
     console.log(data);
     // In the future, this will be replaced with Clerk authentication
-    // For now, let's navigate to the appropriate dashboard based on role
+    // For now, navigate to the appropriate dashboard based on role
     if (data.role === "handyman") {
       navigate("/handyman-dashboard");
-    } else {
-      navigate("/"); // Regular client homepage
+    } else if (data.role === "client") {
+      navigate("/client-dashboard");
     }
   };
 
