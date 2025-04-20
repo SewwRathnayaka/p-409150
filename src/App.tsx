@@ -13,6 +13,7 @@ import Jobs from "./pages/Jobs";
 import Settings from "./pages/Settings";
 import AboutUs from "./pages/AboutUs";
 import Services from "./pages/Services";
+import Contact from "./pages/Contact";
 
 const queryClient = new QueryClient();
 
