@@ -1,138 +1,151 @@
 
 import React from "react";
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Bell, Wrench, User, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ClientDashboard: React.FC = () => {
-  // Mock client data
-  const clientName = "John";
-  const recentRequests = [
-    { id: 1, service: "Plumbing Repair", date: "April 15, 2025", status: "Completed" },
-    { id: 2, service: "Electrical Wiring", date: "April 10, 2025", status: "In Progress" },
-    { id: 3, service: "Furniture Assembly", date: "April 5, 2025", status: "Pending" },
+  // Mock data - in a real app this would come from an API
+  const userName = "Sarah";
+  const bookings = [
+    { 
+      id: 1, 
+      service: "Plumbing Repair",
+      date: "Apr 20th • Today, 2:00 PM",
+      status: "pending"
+    },
+    { 
+      id: 2, 
+      service: "Electrical Maintenance",
+      date: "Mar 21st • Tomorrow, 10:00 AM",
+      status: "pending"
+    },
+    { 
+      id: 3, 
+      service: "Painting",
+      date: "Feb 15th • Today, 12:00 AM",
+      status: "completed"
+    }
   ];
 
-  const recommendedServices = [
-    { id: 1, name: "Plumbing Services", description: "Professional plumbing repairs and installations" },
-    { id: 2, name: "Electrical Services", description: "Licensed electricians for all your electrical needs" },
-    { id: 3, name: "Carpentry", description: "Custom woodworking and furniture assembly" },
-    { id: 4, name: "Painting", description: "Interior and exterior painting services" },
+  const recentMessages = [
+    {
+      id: 1,
+      name: "John Smith",
+      role: "Plumber",
+      message: "I'll be arriving in 15 minutes..."
+    }
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-gray-50">
       <Navbar />
       
-      <main className="flex-grow bg-gray-50 py-12">
-        <div className="container mx-auto px-4">
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900">Welcome back, {clientName}!</h1>
-            <p className="text-gray-600 mt-2">
-              Manage your service requests and find skilled handymen for your projects
-            </p>
+      <main className="container mx-auto px-4 py-8">
+        <div className="flex justify-between items-center mb-8">
+          <div>
+            <h1 className="text-2xl font-semibold">Welcome back, <span className="text-[#14B22D]">{userName}</span></h1>
+            <p className="text-gray-600">What can we help you with today?</p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <Card>
-              <CardHeader>
-                <CardTitle>Request a Service</CardTitle>
-                <CardDescription>Find skilled professionals for your project</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button className="w-full bg-primary">Find a Handyman</Button>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Ongoing Services</CardTitle>
-                <CardDescription>Track your current service requests</CardDescription>
-              </CardHeader>
-              <CardContent className="text-center">
-                <span className="text-4xl font-bold text-primary">2</span>
-                <p className="text-gray-500 mt-2">active requests</p>
-                <Button variant="outline" className="w-full mt-4">View Details</Button>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Service History</CardTitle>
-                <CardDescription>View your past service requests</CardDescription>
-              </CardHeader>
-              <CardContent className="text-center">
-                <span className="text-4xl font-bold text-primary">5</span>
-                <p className="text-gray-500 mt-2">completed services</p>
-                <Button variant="outline" className="w-full mt-4">View History</Button>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Recent Service Requests</CardTitle>
-                <CardDescription>Track the status of your recent requests</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {recentRequests.map((request) => (
-                    <div key={request.id} className="flex justify-between items-center border-b pb-4">
-                      <div>
-                        <h3 className="font-medium">{request.service}</h3>
-                        <p className="text-sm text-gray-500">{request.date}</p>
-                      </div>
-                      <div>
-                        <span className={`text-sm px-3 py-1 rounded-full ${
-                          request.status === "Completed" 
-                            ? "bg-green-100 text-green-800" 
-                            : request.status === "In Progress" 
-                            ? "bg-blue-100 text-blue-800" 
-                            : "bg-yellow-100 text-yellow-800"
-                        }`}>
-                          {request.status}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <Button variant="outline" className="w-full mt-4">
-                  View All Requests
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Recommended Services</CardTitle>
-                <CardDescription>Popular services you might be interested in</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {recommendedServices.map((service) => (
-                    <div key={service.id} className="flex justify-between items-center border-b pb-4">
-                      <div>
-                        <h3 className="font-medium">{service.name}</h3>
-                        <p className="text-sm text-gray-500">{service.description}</p>
-                      </div>
-                      <div>
-                        <Button size="sm" variant="ghost" className="text-primary">
-                          View
-                        </Button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+          
+          <div className="flex items-center gap-4">
+            <Button variant="outline" size="icon">
+              <Bell className="h-5 w-5" />
+            </Button>
+            <Link to="/client-settings">
+              <Button variant="outline" size="icon">
+                <User className="h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
-      </main>
 
-      <Footer />
+        <div className="relative mb-8">
+          <Input 
+            type="search"
+            placeholder="Search Services"
+            className="w-full pl-10"
+          />
+          <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
+            <svg className="h-5 w-5 text-gray-400" fill="none" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+        </div>
+
+        <section className="mb-8">
+          <h2 className="text-lg font-semibold mb-4">Popular Services</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { icon: "plumbing", name: "Plumbing" },
+              { icon: "electrical", name: "Electrical" },
+              { icon: "painting", name: "Painting" },
+              { icon: "home-repair", name: "House Repair" }
+            ].map((service) => (
+              <Card key={service.name} className="p-4 text-center cursor-pointer hover:shadow-lg transition-shadow">
+                <CardContent className="p-0">
+                  <Wrench className="h-8 w-8 mx-auto mb-2 text-[#14B22D]" />
+                  <p className="text-sm font-medium">{service.name}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <Button className="w-full bg-[#F6AC3D] hover:bg-[#F6AC3D]/90 text-white mb-8">
+          Book Service
+        </Button>
+
+        <section className="mb-8">
+          <h2 className="text-lg font-semibold mb-4">Your Bookings</h2>
+          <div className="space-y-4">
+            {bookings.map((booking) => (
+              <Card key={booking.id} className="p-4">
+                <CardContent className="p-0 flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className="h-10 w-10 bg-[#14B22D]/10 rounded-full flex items-center justify-center">
+                      <Wrench className="h-6 w-6 text-[#14B22D]" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium">{booking.service}</h3>
+                      <p className="text-sm text-gray-500">{booking.date}</p>
+                    </div>
+                  </div>
+                  <span className={`px-3 py-1 rounded-full text-sm ${
+                    booking.status === "completed" 
+                      ? "bg-green-100 text-green-800" 
+                      : "bg-yellow-100 text-yellow-800"
+                  }`}>
+                    {booking.status}
+                  </span>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-semibold mb-4">Recent Messages</h2>
+          <div className="space-y-4">
+            {recentMessages.map((message) => (
+              <Card key={message.id} className="p-4">
+                <CardContent className="p-0 flex items-center gap-4">
+                  <div className="h-10 w-10 bg-[#14B22D] rounded-full flex items-center justify-center">
+                    <MessageSquare className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium">{message.name} ({message.role})</h3>
+                    <p className="text-sm text-gray-500">{message.message}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+      </main>
     </div>
   );
 };
